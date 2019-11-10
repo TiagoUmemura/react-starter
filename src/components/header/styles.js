@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    background-color: lightgray;
+    background-color: gray;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    height: 100vh;
+    justify-content: space-around;
+    height: 10vh;
     width: 100%;
 `;

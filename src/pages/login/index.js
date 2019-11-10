@@ -46,9 +46,6 @@ function Login() {
         <CreateAcc>
           <Term>Termos de uso. Políticas de privacidade.</Term>
         </CreateAcc>
-        {
-          isLogged ? <Button text='text2' onClickHandler={ () => dispatch(logout())}/> : false
-        }
       </Card>
     </Container>
   );
