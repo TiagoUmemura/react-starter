@@ -3,15 +3,23 @@ import PropTypes from 'prop-types';
 
 import { Container,Text } from './styled-wrappers';
 
-function Button({width, height, text, onClickHandler}) {
+function Button({bgColor, width, height, text, borderRadius, onClickHandler}) {
     return (
-      <Container width={width} height={height} onClick={onClickHandler}>
+      <Container
+        bgColor={bgColor} 
+        borderRadius={borderRadius}
+        width={width} 
+        height={height}  
+        onClick={onClickHandler} 
+      >
           <Text>{text}</Text>
       </Container>
     );
 }
 
 Button.propTypes = {
+    borderRadius: PropTypes.string,
+    bgColor: PropTypes.string,
     width: PropTypes.string,
     height: PropTypes.string,
     text: PropTypes.string.isRequired,

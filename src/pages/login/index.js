@@ -1,8 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
-import { Container } from './styles';
+import { 
+  Container, 
+  Card,
+  Title,
+  CreateAcc,
+  CreateText,
+  Term
+} from './styles';
 import Button from '../../components/button';
+import InputText from '../../components/input-text';
+import InputPassword from '../../components/input-password';
 import { login, logout } from '../../store/ducks/auth/actions';
 
 function Login() {
@@ -11,10 +20,36 @@ function Login() {
 
   return (
     <Container>
-      <Button text='text' onClickHandler={ () => dispatch(login('user', 'password'))}/>
-      {
-        isLogged ? <Button text='text2' onClickHandler={ () => dispatch(logout())}/> : false
-      }
+      <Card>
+        <Title>Bem vindo! Insira seus dados para entrar</Title>
+        <InputText 
+          name='email' 
+          placeholder='Email'
+          border='1px solid gray'
+        />
+        <InputPassword 
+          name='senha'
+          placeholder='Senha'
+          border='1px solid gray'
+        />
+        <Button
+          bgColor={'gray'}
+          borderRadius='10px'
+          width='120px'
+          height='35px' 
+          text='Entrar' 
+          onClickHandler={ () => dispatch(login('user', 'password'))}
+        />
+        <CreateAcc>
+          <CreateText>Crie uma nova conta. Cadastre-se.</CreateText>
+        </CreateAcc>
+        <CreateAcc>
+          <Term>Termos de uso. Políticas de privacidade.</Term>
+        </CreateAcc>
+        {
+          isLogged ? <Button text='text2' onClickHandler={ () => dispatch(logout())}/> : false
+        }
+      </Card>
     </Container>
   );
 }
