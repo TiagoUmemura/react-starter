@@ -23,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-coverage": "react-app-rewired test --env=jsdom --watchAll=false --coverage --no-cache",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
