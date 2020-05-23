@@ -13,7 +13,7 @@ const persistConfig = {
 }
 
 const sagaMiddleware = createSagaMiddleware()
-const rootReducers = combineReducers({
+export const rootReducers = combineReducers({
   auth,
 });
 
