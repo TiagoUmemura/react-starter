@@ -10,7 +10,6 @@
 
 ## Checklist:
 <!--- Analise todos os pontos a seguir e coloque um `x` em todas as caixas que se aplicam. -->
-<!--- Se você não tiver certeza sobre qualquer um desses, não hesite em perguntar. Nós estamos aqui para ajudar! -->
 
 - [ ] Minhas alterações atendem aos requisitos da atividade.
 - [ ] Meu código segue o style guide do projeto.
@@ -19,6 +18,3 @@
 - [ ] Minhas alterações não contém `console.log`
 - [ ] Adicionei testes as minhas alterações.
 - [ ] Todos os testes adicionados estão passando e com cobertura mínima de 80%.
-
-
-_Se você não tiver certeza sobre qualquer um desses pontos, não hesite em perguntar. Nós estamos aqui para ajudar!_
