@@ -12,8 +12,18 @@ function * login(action) {
     }
  }
 
+ function * logout() {
+   try {
+       history.push('/')
+   } catch (e) {
+      yield put({type: "USER_FETCH_FAILED", message: e.message});
+   }
+}
+
  function * authSaga() {
     yield takeLatest('auth/LOGIN', login);
+    yield takeLatest('auth/LOGOUT', logout);
+
   }
   
   export default authSaga;

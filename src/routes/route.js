@@ -10,7 +10,7 @@ export default function RouteWrapper ({
 }) {
   const isLogged = useSelector(state => state.auth.isLogged);
 //   const Layout = signed ? DefaultLayout : AuthLayout
-
+//TODO: Adicionar redirect caso nao esteja logado
   return (
     <Route
       {...rest}
