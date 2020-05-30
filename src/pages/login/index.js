@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { 
   Container, 
@@ -12,11 +12,10 @@ import {
 import Button from '../../components/button';
 import InputText from '../../components/input-text';
 import InputPassword from '../../components/input-password';
-import { login, logout } from '../../store/ducks/auth/actions';
+import { login } from '../../store/ducks/auth/actions';
 
 function Login() {
   const dispatch = useDispatch();
-  const isLogged = useSelector(state => state.auth.isLogged);
 
   return (
     <Container>
