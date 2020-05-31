@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux'
 import { 
     Container 
 } from './styles';
-import Button from '../button';
-import { logout } from '../../store/ducks/auth/actions';
+import Button from 'components/button';
+import { logout } from 'store/ducks/auth/actions';
 
 function Header() {
   const dispatch = useDispatch();
