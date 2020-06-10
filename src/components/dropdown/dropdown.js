@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 
-import { Button } from './styled-wrappers'
-
-export default function DropdownBootstrap ({ items, value, handleSelec, width, height }) {
-  const [value, setValue] = useState('')
-  const handleSelect = (e) => {
-    console.log(e)
-    setValue(e)
-  }
-
+import { Button, SelectedOptionContainer, TextContainer, IconContainer } from './styled-wrappers'
+//Developed with react bootstrap library
+export default function DropdownBootstrap ({
+  items,
+  value,
+  handleSelect,
+  width,
+  height,
+  defaultLabel = '',
+  disabled
+}) {
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <Button
       href=''
@@ -20,9 +22,9 @@ export default function DropdownBootstrap ({ items, value, handleSelec, width, h
       }}
       width={width}
       height={height}
+      disabled={disabled}
     >
       {children}
-      &#x25bc;
     </Button>
   ))
 
@@ -32,7 +34,10 @@ export default function DropdownBootstrap ({ items, value, handleSelec, width, h
         as={CustomToggle}
         id='dropdown-custom-component'
       >
-        {value}
+        <SelectedOptionContainer>
+          <TextContainer>{value !== '' ? items.find(item => item.value === value).fields[0] : defaultLabel}</TextContainer>
+          <IconContainer>&#x25bc;</IconContainer>
+        </SelectedOptionContainer>
       </Dropdown.Toggle>
       <Dropdown.Menu>
         {items.length > 0 && items.map(item =>
