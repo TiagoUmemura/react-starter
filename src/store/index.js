@@ -3,7 +3,9 @@ import createSagaMiddleware from 'redux-saga'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import auth from './ducks/auth/reducers';
+import auth from './ducks/auth/reducers'
+import socket from './ducks/socket/reducers'
+import socketMiddleware from './ducks/socket-middleware/socket-middleware'
 import rootSaga from './rootSaga'
 
 const persistConfig = {
@@ -12,14 +14,16 @@ const persistConfig = {
   whitelist: ['auth'] //Persists auth when browser refresh
 }
 
-const sagaMiddleware = createSagaMiddleware()
 export const rootReducers = combineReducers({
   auth,
-});
-
+  socket
+})
 const persistedReducer = persistReducer(persistConfig, rootReducers)
 
-export const Store = createStore(persistedReducer, applyMiddleware(sagaMiddleware));
+const sagaMiddleware = createSagaMiddleware()
+const middlewares = [sagaMiddleware, socketMiddleware]
+
+export const Store = createStore(persistedReducer, applyMiddleware(...middlewares))
 export const Persistor = persistStore(Store);
 
 sagaMiddleware.run(rootSaga)
