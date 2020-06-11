@@ -1,11 +1,12 @@
 import openSocket from 'socket.io-client'
+import {Types} from '../socket/reducers'
 
 const socketMiddleware = () => {
     let socket = null
 
     return store => next => (action) => {
         switch (action.type) {
-            case 'WS_CONNECT':
+            case Types.WS_CONNECT:
                 if (socket !== null) {
                     socket.close()
                 }
@@ -23,16 +24,20 @@ const socketMiddleware = () => {
                     console.log(receivedMessage)
                 })
                 break
-            case 'WS_DISCONNECT':
+            case Types.WS_DISCONNECT:
                 if (socket !== null) {
                     console.warn('FECHANDO SOCKET')
                     socket.close()
                   }
                   socket = null
                 break
-            case 'SEND_MESSAGE':
-                //sendo message on socket channel
-                socket.emit('sendMessage', action.payload.message)
+            case Types.SEND_MESSAGE:
+                //send message on socket channel
+                if(socket !== null) {
+                    socket.emit('sendMessage', action.payload.message)
+                } else {
+                    console.log('socket não está conectado: ' + action.payload.message)
+                }
                 break
             default:
                 return next(action)
