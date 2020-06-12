@@ -1,16 +1,18 @@
 import React from 'react';
 import { Router } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify';
 
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
-import { Store, Persistor } from './store';
+import { Store, Persistor } from './store'
 import GlobalStyle from './global-style'
 import RouteWrapper from './routes/route'
 
-import Login from './pages/login';
-import Home from './pages/home';
+import Login from './pages/login'
+import Home from './pages/home'
 import history from './history/history'
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
             <RouteWrapper path="/" exact={true} component={Login} />
             <RouteWrapper path="/home" exact={true} component={Home} />
             <GlobalStyle />
+            <ToastContainer autoClose={3000}/>
           </Router>
         </PersistGate>
     </Provider>

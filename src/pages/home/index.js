@@ -5,7 +5,8 @@ import { Container } from './styles';
 import Dropdown from 'components/dropdown/dropdown'
 import Button from 'components/button'
 import {socketConnect, sendMessage} from 'store/ducks/socket/actions'
-
+// components demonstration on home page
+// show header only after login success
 function Home() {
   const [value, setValue] = useState('')
   const dispatch = useDispatch()
