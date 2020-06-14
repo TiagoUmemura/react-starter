@@ -5,10 +5,13 @@ import { Container } from './styles';
 import Dropdown from 'components/dropdown/dropdown'
 import Button from 'components/button'
 import {socketConnect, sendMessage} from 'store/ducks/socket/actions'
+import Modal from 'components/modal/modal'
+
 // components demonstration on home page
 // show header only after login success
 function Home() {
   const [value, setValue] = useState('')
+  const [showModal, setShowModal] = useState(false)
   const dispatch = useDispatch()
 
   const DropdownValues = [
@@ -43,6 +46,14 @@ function Home() {
         text='Socket Send Message'
         onClickHandler={() => dispatch(sendMessage('message text'))}
       />
+      <Button
+        bgColor='blue'
+        width='125px'
+        height='50px'
+        text='Show modal example'
+        onClickHandler={() => setShowModal(true)}
+      />
+      {showModal && <Modal onClickClose={() => setShowModal(false)}/>}
     </Container>
   );
 }
