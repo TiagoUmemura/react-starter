@@ -6,6 +6,7 @@ import Dropdown from 'components/dropdown/dropdown'
 import Button from 'components/button'
 import {socketConnect, sendMessage} from 'store/ducks/socket/actions'
 import Modal from 'components/modal/modal'
+import InputUpload from 'components/input-upload/input-upload'
 
 // components demonstration on home page
 // show header only after login success
@@ -54,6 +55,8 @@ function Home() {
         onClickHandler={() => setShowModal(true)}
       />
       {showModal && <Modal onClickClose={() => setShowModal(false)}/>}
+      
+      <InputUpload/>
     </Container>
   );
 }
