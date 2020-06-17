@@ -12,6 +12,11 @@ export const store = createStore(rootReducers);
 const scrollIntoViewMock = jest.fn();
 window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock
 
+//mock line for charjs react
+jest.mock('react-chartjs-2', () => ({
+  Line: () => null
+}))
+
 global.IntersectionObserver = class IntersectionObserver {
   constructor() {}
   observe() {
