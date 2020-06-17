@@ -12,6 +12,10 @@ export const store = createStore(rootReducers);
 const scrollIntoViewMock = jest.fn();
 window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock
 
+// mock csv download functions
+window.URL.createObjectURL = jest.fn()
+window.HTMLCanvasElement.prototype.getContext = jest.fn()
+
 //mock line for charjs react
 jest.mock('react-chartjs-2', () => ({
   Line: () => null
