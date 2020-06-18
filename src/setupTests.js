@@ -15,6 +15,13 @@ window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock
 // mock csv download functions
 window.URL.createObjectURL = jest.fn()
 window.HTMLCanvasElement.prototype.getContext = jest.fn()
+jest.mock('file-saver', () => {
+  return {
+    saveAs: (blob, filename) => {
+      return filename
+    }
+  }
+})
 
 //mock line for charjs react
 jest.mock('react-chartjs-2', () => ({
