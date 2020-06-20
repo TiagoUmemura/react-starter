@@ -1,5 +1,6 @@
 import openSocket from 'socket.io-client'
 import {Types} from '../socket/reducers'
+import { toast } from 'react-toastify'
 
 const socketMiddleware = () => {
     let socket = null
@@ -36,7 +37,7 @@ const socketMiddleware = () => {
                 if(socket !== null) {
                     socket.emit('sendMessage', action.payload.message)
                 } else {
-                    console.log('socket não está conectado: ' + action.payload.message)
+                    toast.info('socket não está conectado: ' + action.payload.message)
                 }
                 break
             default:
