@@ -11,7 +11,7 @@ Runs on localhost:3000
 
 ### `yarn test`
 
-Launches test and show coverage by file. 
+Launches test and show coverage by file.
 
 ### `yarn build`
 
@@ -21,7 +21,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 
 ### Code Splitting
 
@@ -39,13 +38,15 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This React template project has the following initial features:
 
- - react-redux
- - redux-saga
- - socket-middleware, if you want to use socket on your application (socket-io-client)
- - react-testing-library: initial setupTests for unit and page tests, it is configured to bypass only saga.js files but you still can test actions and reducers if you want.
- - styled-components: all the css are placed on styles.js files
- - some generic components like dropdown
- - react-router-dom: initial configuration for routes in the application using history
- - react-toastfy: for generic user feedback
- - redux-persist: persist data on browser, usually used for user authentication so you can persist auth information on browser
- - storybook (will be added later)
+- react-redux
+- redux-saga
+- socket-middleware, if you want to use socket on your application (socket-io-client)
+- react-testing-library: initial setupTests for unit and page tests, it is configured to bypass only saga.js files but you still can test actions and reducers if you want.
+- styled-components: all the css are placed on styles.js files
+- some generic components like dropdown
+- react-router-dom: initial configuration for routes in the application using history
+- react-toastfy: for generic user feedback
+- redux-persist: persist data on browser, usually used for user authentication so you can persist auth information on browser
+- Theme provider: center all color, font and design system pattern on theme.js using ThemeProvider
+- ESlint configuration (Airbnb)
+- storybook (will be added later)
